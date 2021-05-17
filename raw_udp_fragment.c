@@ -78,7 +78,7 @@ int send_udp_with_mtu(int sock_raw, char *buf, unsigned short len, char *src, un
 		}
 		else
 		{
-			ip->frag_off = htons(offset/8 | 0x20000);
+			ip->frag_off = htons(offset/8 | 0x2000);
 			ip->tot_len = htons(sizeof(struct iphdr) + mtu);
 		}
 		memcpy(tmp + 20, buf + i, ntohs(ip->tot_len) - sizeof(struct iphdr));
